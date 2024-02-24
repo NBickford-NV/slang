@@ -49,9 +49,11 @@ if(SLANG_ENABLE_SLANG_GLSLANG)
     add_subdirectory(glslang EXCLUDE_FROM_ALL)
 endif()
 
-# imgui
-add_library(imgui INTERFACE)
-target_include_directories(imgui INTERFACE "${CMAKE_CURRENT_LIST_DIR}/imgui")
+if(SLANG_ENABLE_GFX)
+    # imgui
+    add_library(imgui INTERFACE)
+    target_include_directories(imgui INTERFACE "${CMAKE_CURRENT_LIST_DIR}/imgui")
+endif()
 
 # Tidy things up:
 
